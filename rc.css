@@ -1,0 +1,38 @@
+body { font-family: sans-serif; }
+
+table.changes {
+  font-size: 12px;
+  border-collapse: collapse;
+  border: solid #ccc 1px;
+}
+table.changes td {
+  border-top: solid #ccc 1px;
+  border-bottom: solid #ccc 1px;
+  padding: 2px 5px;
+}
+
+td.color { width: 15px; padding: 0; }
+tr.mod td.color { background-color: #951131; }
+tr.eva td.color { background-color : #1a5da3; }
+tr.robo td.color { background-color : #000; } /* of #0d306a */
+tr.missionsystems td.color { background-color : #f90000; }
+
+.sitename { font-size: 11px; }
+.timestamp { white-space:nowrap; }
+.comment {
+  margin-left: 10px;
+  font-size: 11px;
+  color: red;
+  font-style:
+  italic;
+}
+.show-hide-comment { text-decoration:underline; color:blue; }
+
+.change-type-text {
+  margin-right: 5px;
+  font-size: 11px;
+}
+
+.change-type-new .change-type-text {
+  color: green;
+}
