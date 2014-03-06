@@ -5,4 +5,10 @@
 !.gitignore
 !README.md
 !index.php
+
+# And not this directory...which for some reason doesn't consistently anti-ignore
+!/WikiBlender/
+!WikiBlender/
+!/WikiBlender/*
 !WikiBlender/*
+
