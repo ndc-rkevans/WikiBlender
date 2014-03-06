@@ -3,7 +3,7 @@
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-    <link href="jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/cupertino/jquery-ui.min.css" rel="stylesheet" type="text/css" />
 	<script>
 		$(document).tooltip({
 			content: function() {
@@ -126,12 +126,7 @@
 		<h2>MediaWiki Installations</h2>
 		<table id="versions"></table>
 		
-		<div id="footer">
-			<a href="http://modspops.jsc.nasa.gov/mod/default.aspx">MOD Home</a> | 
-			<a href="http://www.jsc.nasa.gov/policies.html">Web Policy</a> |
-			<span title="Responsible NASA Official">RNO: <a href="mailto:timothy.a.hall@nasa.gov">Tim Hall</a></span> |
-			<a href="mailto:edwin.j.montalvo@nasa.gov;lawrence.d.welsh@nasa.gov;scott.wray-1@nasa.gov;brian.k.alpert@nasa.gov;costa.mavridis@nasa.gov;stephanie.s.johnston@nasa.gov" title="James Montalvo<br />Daren Welsh<br />Scott Wray<br />Stephanie Johnston<br />Costa Mavridis<br />Brian Alpert">Administrators</a>
-		</div>
+		<?php include dirname(__FILE__) . "/footer.php"; ?>
 		
 		<div style="text-align:left; margin-top: 40px;">
 			<?php phpinfo(); ?>

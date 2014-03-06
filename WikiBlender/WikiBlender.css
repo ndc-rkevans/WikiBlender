@@ -1,0 +1,54 @@
+body { font-family: sans-serif; }
+#container { text-align: center; }
+#masonry-container { text-align: center; margin: 50px auto 30px auto; }
+h1 { text-align:center; }
+h2 {}
+h3 { margin:0;}
+h4 { margin:0; font-weight:normal; }
+
+
+a {
+	text-decoration: none;
+}
+a:link, a:visited, a:hover, a:active, .fakelink {color:#0645AD; border:none;}
+img { border:none; }
+a:hover, .fakelink:hover { text-decoration:underline;}
+a.nounderline:hover { text-decoration:none; }
+a table:hover {
+	background-color: #EEE;
+}
+
+p.num-articles { font-style:italic; font-size:80%; }
+p { margin: 0; }
+.wiki-title { text-align:center; }
+.logo-title-group div, .logo-title-group img, .logo-title-group h1 {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 10px 0 10px;
+}
+#container h1 {
+}
+#footer {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	font-size:11px;
+	font-weight:normal;
+	clear:left;
+}
+.ui-tooltip {
+	font-size: 12px;
+}
+table {
+	margin:0 auto 0 auto;
+	
+}
+table td {
+	padding: 10px;
+	text-align: center;
+}
+.wiki-block {
+	width: 250px;
+	height: 250px;
+	display: inline-block;
+	float: left;
+}

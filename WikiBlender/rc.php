@@ -14,7 +14,7 @@ else
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 	<!--<script src="masonry.pkgd.min.js"></script>-->
 	<script src="rc.js"></script>
-    <link href="jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/cupertino/jquery-ui.min.css" rel="stylesheet" type="text/css" />
     <link href="rc.css" rel="stylesheet" type="text/css" />
 	<script>
 		$(".tooltip").tooltip({
@@ -44,7 +44,7 @@ else
 			</tr>
 		</table>
 	</div>
-	<?php include "footer.php"; ?>
+	<?php include dirname(__FILE__) . "/footer.php"; ?>
   </body><?php
   
 ?></html>
