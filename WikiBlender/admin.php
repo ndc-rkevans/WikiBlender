@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <?php echo WikiBlender::htmlHeader(); ?>
+    <title><?php echo WikiBlender::get_title(); ?></title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
     <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/cupertino/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+	<link href="WikiBlender/WikiBlender.css" rel="stylesheet" type="text/css" />
+
 	<script>
 		$(document).tooltip({
 			content: function() {
@@ -13,14 +17,17 @@
 		
 		$(document).ready(function(){
 
-			var host = "https://mod-dev2.jsc.nasa.gov/wiki/";
-			var wikis = ["eva","robo","missionsystems","adco","mod"];
+			var wikis = [];
+			for(var w in WikiBlenderWikis) {
+				wikis.push(w);
+			}
+			
 			var api = "/api.php";
 
 			for (var i=0; i<wikis.length; i++) {
 			
 				$.getJSON(
-					host + wikis[i] + api,
+					WikiBlenderServer + wikis[i] + api,
 					{
 						action : "query",
 						meta : "siteinfo",
@@ -59,74 +66,14 @@
 			
 		});
     </script>
-	<style>
-		body { font-family: sans-serif; }
-		#container { text-align: center; min-width: 768px;}
-		h1 {}
-		h2 {}
-		h3 { margin:0;}
-		h4 { margin:0; font-weight:normal; }
-		
-		
-		a {
-			text-decoration: none;
-		}
-		a:link, a:visited, a:hover, a:active, .fakelink {color:#0645AD; border:none;}
-		img { border:none; }
-		a:hover, .fakelink:hover { text-decoration:underline;}
-		a.nounderline:hover { text-decoration:none; }
-		a table:hover {
-			background-color: #EEE;
-		}
-		
-		p.num-articles { font-style:italic; font-size:80%; }
-		p { margin: 0; }
-		.wiki-title { text-align:center; }
-		.logo-title-group div, .logo-title-group img, .logo-title-group h1 {
-			display: inline-block;
-			vertical-align: middle;
-			margin: 0 10px 0 10px;
-		}
-		#container h1 {
-		}
-		#footer {
-			margin-top: 50px;
-			font-size:11px;
-			font-weight:normal;
-		}
-		.ui-tooltip {
-			font-size: 12px;
-		}
-		table#versions {
-			margin:0 auto 0 auto;
-			
-		}
-		table#versions td {
-			padding: 10px;
-			text-align: center;
-		}
-		
-		table#versions {
-			width : 500px;
-			margin : 10px auto;
-		}
-		td.hash-color {
-			height : 50px;
-			width : 50px;
-			margin : 5px;
-		}
-		td.wiki-info {
-			text-align : left;
-		}
-	</style>
   </head>
   <body>
     <div id="container">
-		
+		<h1><?php echo WikiBlender::get_title(); ?></h1>
 		<h2>MediaWiki Installations</h2>
 		<table id="versions"></table>
 		
-		<?php include dirname(__FILE__) . "/footer.php"; ?>
+		<?php echo WikiBlender::getFooter(); ?>
 		
 		<div style="text-align:left; margin-top: 40px;">
 			<?php phpinfo(); ?>

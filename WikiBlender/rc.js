@@ -1,14 +1,4 @@
-/* need setup, define variables URLstart, perhaps do list of wikis
-var URLstart = "https://mod2.jsc.nasa.gov/wiki/";
-
-var wikis = {
-	'mod' : {},
-	'eva' : {},
-	'robo' : {},
-	'missionsystems' : {}
-};
-
-var 
+/* 
 
 ORDER OF OPERATIONS:
 1) See if they are able to view the wiki
@@ -18,19 +8,10 @@ ORDER OF OPERATIONS:
 */
 
 var combinedRecentChanges = {
-
-	wikis : {
-		'mod' : {},
-		'eva' : {},
-		'robo' : {},
-		'missionsystems' : {}
-	},
 	
-	URLstart : "https://mod2.jsc.nasa.gov/wiki/",
-
 	initiate : function () {
 		
-		for (var dir in this.wikis) {
+		for (var dir in WikiBlenderWikis) {
 			this.getSiteInfo( dir );
 		}
 		
@@ -40,7 +21,7 @@ var combinedRecentChanges = {
 		var self = this;
 		
 		$.getJSON(
-			this.URLstart + siteDirectory + "/api.php",
+			WikiBlenderServer + siteDirectory + "/api.php",
 			{
 				action : "query",
 				meta : "siteinfo",
@@ -48,29 +29,51 @@ var combinedRecentChanges = {
 				format : "json"
 			},
 			function ( response ) {
-				self.wikis[siteDirectory].namespaces = response.query.namespaces;
-				self.wikis[siteDirectory].mainpage = response.query.general.mainpage;
-				self.wikis[siteDirectory].sitename = response.query.general.sitename;
-				self.wikis[siteDirectory].server = response.query.general.server;
-				self.wikis[siteDirectory].articlepath = response.query.general.articlepath;
+				WikiBlenderWikis[siteDirectory].namespaces = response.query.namespaces;
+				WikiBlenderWikis[siteDirectory].mainpage = response.query.general.mainpage;
+				WikiBlenderWikis[siteDirectory].sitename = response.query.general.sitename;
+				WikiBlenderWikis[siteDirectory].server = response.query.general.server;
+				WikiBlenderWikis[siteDirectory].articlepath = response.query.general.articlepath;
 				self.getSiteRecentChanges( siteDirectory );
 			}
 		);
 	
 	},
 	
+	// FIXME: Doesn't correct for GMT offset...
+	getCurrentTimestampString : function () {
+		var todayStart = new Date();
+		
+		var year = todayStart.getFullYear().toString();
+		
+		var month = todayStart.getMonth()+1;
+		if (month < 10)
+			month = "0"+month;
+		else
+			month = month.toString();
+		
+		var day = todayStart.getDate();
+		if (day < 10)
+			day = "0"+day;
+		else
+			day = day.toString();
+		
+		return year + month + day + "000000";
+		
+	},
+	
 	getSiteRecentChanges : function ( siteDirectory ) {
 		var self = this;
 		
 		$.getJSON(
-			this.URLstart + siteDirectory + "/api.php",
+			WikiBlenderServer + siteDirectory + "/api.php",
 			{
 				action : "query",
 				list : "recentchanges",
 				rcprop : "user|comment|parsedcomment|timestamp|title|ids|sha1|sizes|redirect|patrolled|loginfo|flags",
 				format : "json",
-				rcend : 20140304000000, // today?
-				rclimit : 300
+				rcend : this.getCurrentTimestampString(), // FIXME: Doesn't correct for GMT offset...
+				rclimit : 150
 			},
 			function( response ) {
 				self.handleSiteRecentChanges( response, siteDirectory );
@@ -83,7 +86,7 @@ var combinedRecentChanges = {
 	
 		var c, title, user, ns, timestamp, comment;
 		var changes = jsonResponse.query.recentchanges;
-		var wiki = this.wikis[siteDirectory];
+		var wiki = WikiBlenderWikis[siteDirectory];
 		
 		for (var i=0; i<changes.length; i++) {
 			// c = changes[i];
@@ -112,7 +115,7 @@ var combinedRecentChanges = {
 					}
 					// this is the last row, so insert after
 					else if ( index === rows.size() - 1) {
-						console.log( 'last row insert' );
+						// console.log( 'last row insert' );
 						$(element).after( newRow );
 						return false;
 					}
@@ -130,7 +133,7 @@ var combinedRecentChanges = {
 	
 	buildChangesRow : function ( change, siteDirectory ) {
 		
-		var wiki = this.wikis[siteDirectory];
+		var wiki = WikiBlenderWikis[siteDirectory];
 		
 		// if (change.type != "edit")
 			// console.log(change.type);

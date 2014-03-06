@@ -9,7 +9,9 @@ table.changes td {
   border-top: solid #ccc 1px;
   border-bottom: solid #ccc 1px;
   padding: 2px 5px;
+  text-align: left;
 }
+
 
 td.color { width: 15px; padding: 0; }
 tr.mod td.color { background-color: #951131; }

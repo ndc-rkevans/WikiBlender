@@ -1,7 +1,7 @@
 body { font-family: sans-serif; }
 #container { text-align: center; }
 #masonry-container { text-align: center; margin: 50px auto 30px auto; }
-h1 { text-align:center; }
+h1, h2 { text-align:center; }
 h2 {}
 h3 { margin:0;}
 h4 { margin:0; font-weight:normal; }
@@ -51,4 +51,28 @@ table td {
 	height: 250px;
 	display: inline-block;
 	float: left;
+}
+
+
+/* For Admin page*/
+table#versions {
+	margin:0 auto 0 auto;
+	
+}
+table#versions td {
+	padding: 10px;
+	text-align: center;
+}
+
+table#versions {
+	width : 500px;
+	margin : 10px auto;
+}
+table#versions td.hash-color {
+	height : 50px;
+	width : 50px;
+	margin : 5px;
+}
+table#versions td.wiki-info {
+	text-align : left;
 }
