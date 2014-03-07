@@ -131,6 +131,67 @@ var combinedRecentChanges = {
 	
 	},
 	
+	/*
+                "logtype": "rights",
+                "logaction": "rights",
+                "rights": {
+                    "new": "Viewer",
+                    "old": ""
+                }
+	
+	*/
+	getChangeType : function(change) {
+	
+		if (change.type == "new") {
+			return { text : "new page", cssClass : "newpage" };
+		
+		}
+		else if (change.type == "log") {
+			
+			// log types...
+			var types = {
+				"delete" : "deleted",
+				"upload" : { 
+					upload : "new upload",
+					overwrite : "upload new version"
+				},
+				"rights" : "user rights", 
+				"approval" : {
+					approve : "revision approved",
+					unapprove : "revision unapproved"
+				},// approve
+				"interwiki" : "interwiki",// iw_edit
+				"patrol" : "patrol",
+				"import" : "import",
+				"move" : "moved",
+				"protect" : "protected",
+				"newusers" : "new user"
+				
+				// merge?
+				// block?
+			};
+			
+			var text;
+			if (typeof types[change.logtype] === 'string')
+				text = types[change.logtype];
+			else if ( types[change.logtype][change.logaction] )
+				text = types[change.logtype][change.logaction];
+			else
+				text = change.logtype;
+			
+			return {
+				text : text,
+				cssClass : change.logtype
+			};
+		}
+		else 
+			return {
+				text : "",
+				cssClass : change.type
+			};
+
+	},
+	
 	buildChangesRow : function ( change, siteDirectory ) {
 		
 		var wiki = WikiBlenderWikis[siteDirectory];
@@ -140,12 +201,15 @@ var combinedRecentChanges = {
 				.text( wiki.sitename )
 				.addClass( "sitename" )
 		);
+		
+		var changeType = this.getChangeType(change);
 			
-		if (change.type == "new")
+		if (changeType.text !== "") {
 			titleTD.append(
-				$("<span>new page</span>")
+				$("<span>" + changeType.text + "</span>")
 					.addClass('change-type-text')
 			);
+		}
 			
 		titleTD.append(		
 			$("<a>")
@@ -182,7 +246,7 @@ var combinedRecentChanges = {
 				$("<td>").text( this.timeDiff(change.timestamp) ).addClass("timestamp").attr("timestamp", change.timestamp)
 				//,commentTD
 			)
-			.addClass(siteDirectory + " change-row change-type-" + change.type)
+			.addClass(siteDirectory + " change-row change-type-" + changeType.cssClass)
 			.attr("title", tooltip) //change.comment || "no comment")
 			.tooltip({
 				track : true,
