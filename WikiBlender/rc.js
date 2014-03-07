@@ -135,9 +135,6 @@ var combinedRecentChanges = {
 		
 		var wiki = WikiBlenderWikis[siteDirectory];
 		
-		// if (change.type != "edit")
-			// console.log(change.type);
-			
 		var titleTD = $("<td>").append(
 			$("<div>")
 				.text( wiki.sitename )
@@ -172,32 +169,11 @@ var combinedRecentChanges = {
 		var commentLength = 50;
 		var commentTD = $("<td>").addClass("comment");
 		
-		// if (change.comment.length > commentLength) {
-			// var shortComment = change.comment.slice(0,commentLength) + " . . . ";
-			// commentTD.append(
-				// $("<span>").text( shortComment ),
-				// $("<a href='javascript:void(0);'>").text("more").addClass("show-hide-comment").click(function(){
-					// if ( $(this).text() == "more" ) {
-						// $(this).prev().text( change.comment );
-						// $(this).text( "less" );
-					// }
-					// else {
-						// $(this).prev().text( shortComment );
-						// $(this).text("more");
-					// }
-				// })
-			// );
-		// }
-		// else {
-			// commentTD.text( change.comment );
-		// }
-		
 		var tooltip = "";
 		for (var c in change) {
 			tooltip += "<strong>" + c + ":</strong> " + change[c] + "<br />";
 		}
 		
-	
 		return $("<tr>")
 			.append(
 				$("<td>").addClass("color"),
@@ -214,9 +190,6 @@ var combinedRecentChanges = {
 					return $(this).attr('title');
 				}
 			});
-	
-	
-
 
 	},
 	
