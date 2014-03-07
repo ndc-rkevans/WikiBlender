@@ -75,17 +75,16 @@ class WikiBlender {
 		$name = $wiki['name'];
 		$logo = $wiki['logo'];
 
-		return 
-			"<div class='wiki-block'>
-				<a href='$path'><img src='$logo' />
-				<h3>$name</h3></a>
-				<p class='-num-articles num-articles' wikipath='$path'>Loading wiki data...</p>
-			</div>";
-			// "<a href='$path' class='wiki-block'>
-				// <img src='$logo' />
-				// <h3>$name</h3>
-				// <p class='-num-articles num-articles' wikipath='$path'>Loading wiki data...</p>
-			// </a>";	
+		return
+			"<table class='wiki-block'>
+				<tr><td>
+					<a href='$path'>
+						<img src='$logo' />
+						<h3>$name</h3>
+					</a>
+				</td></tr>
+				<tr><td class='num-articles' wikipath='$path'>Loading wiki data...</td></tr>
+			</table>";
 	}
 
 	public static function getFooter () {
