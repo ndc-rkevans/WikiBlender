@@ -69,6 +69,6 @@ var WikiBlender = {
 				return $(this).attr('title');
 			}
 		});	
-	},
+	}
 	
 };
