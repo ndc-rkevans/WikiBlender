@@ -47,12 +47,16 @@ table td {
 	text-align: center;
 }
 .wiki-block {
+	padding-top: 10px;
 	width: 250px;
 	height: 250px;
 	display: inline-block;
 	float: left;
 }
 
+.wiki-block:hover {
+	background-color: #ffd;
+}
 
 /* For Admin page*/
 table#versions {
