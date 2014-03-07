@@ -35,7 +35,7 @@ var WikiBlender = {
 				var userCounts = [];
 				for(var u in allusers) {
 					userCounts.push( "<li>" + allusers[u].name + " : " + allusers[u].recenteditcount + " edits</li>" );
-					if (userCounts.length > 10)
+					if (userCounts.length > 9)
 						break;
 				}
 				userCounts = userCounts.join("");
