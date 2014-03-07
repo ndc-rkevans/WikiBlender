@@ -32,13 +32,14 @@ var WikiBlender = {
 				var allusers = response.query.allusers;
 				
 				allusers.sort( compareUserActions );
-				var userCounts = []
+				var userCounts = [];
 				for(var u in allusers) {
-					userCounts.push( "<li>" + allusers[u].name + " : " + allusers[u].recenteditcount + "</li>" );
+					userCounts.push( "<li>" + allusers[u].name + " : " + allusers[u].recenteditcount + " edits</li>" );
+					if (userCounts.length > 10)
+						break;
 				}
 				userCounts = userCounts.join("");
-				userCounts = "<h4>User edits in last 30 days</h4><ol>" + userCounts + "</ol>";
-				console.log(userCounts);
+				userCounts = "<h4>Most active users - last 30 days</h4><ol>" + userCounts + "</ol>";
 				
 				$(articlesElement)
 					.attr("title", userCounts)
