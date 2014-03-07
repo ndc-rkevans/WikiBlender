@@ -156,7 +156,10 @@ var combinedRecentChanges = {
 				.addClass("article")
 				.attr(
 					"href",
-					wiki.server+wiki.articlepath.replace( "$1", change.title.replace(" ","_") )
+					wiki.server + wiki.articlepath.replace(
+						"$1",
+						encodeURIComponent( change.title.replace(/ /gi,"_") )
+					)
 				)
 		);
 		
