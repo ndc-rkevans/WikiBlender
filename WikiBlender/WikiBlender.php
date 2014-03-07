@@ -77,11 +77,15 @@ class WikiBlender {
 
 		return 
 			"<div class='wiki-block'>
-				<a href='$path'><img src='$logo' /></a>
-				<a href='$path'><h3>$name</h3></a>
+				<a href='$path'><img src='$logo' />
+				<h3>$name</h3></a>
 				<p class='-num-articles num-articles' wikipath='$path'>Loading wiki data...</p>
 			</div>";
-	
+			// "<a href='$path' class='wiki-block'>
+				// <img src='$logo' />
+				// <h3>$name</h3>
+				// <p class='-num-articles num-articles' wikipath='$path'>Loading wiki data...</p>
+			// </a>";	
 	}
 
 	public static function getFooter () {
