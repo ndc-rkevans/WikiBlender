@@ -26,6 +26,7 @@
   </head>
   <body>
 	<h1><?php echo WikiBlender::get_title(); ?></h1>
+	<h4><a href="?v=RecentChanges">Combined Recent Changes</a> <sup>(beta)</sup></h4>
     <div id="container">
 		
 		<div id="masonry-container">
