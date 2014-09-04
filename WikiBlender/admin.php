@@ -31,7 +31,8 @@
 					{
 						action : "query",
 						meta : "siteinfo",
-						format : "json"
+						format : "json",
+						siprop : "general|statistics"
 					},
 					function(response) {
 						var info = response.query.general;
@@ -47,13 +48,14 @@
 						
 						var git = "<a href='https://git.wikimedia.org/commit/mediawiki%2Fcore.git/" 
 							+ info["git-hash"] + "'>" + info["git-hash"].slice(0,6) + "</a>";
-						
-						
-						var content = $("<td class='wiki-info'>").html(
-							info.sitename + ": " + info.generator + " (" + git + ")" 
+										
+						var content = info.sitename + ": " + info.generator + " (" + git + ")" 
 							+ "<br />"
-							+ "<small>" + specialVersion + "</small>"
-						);
+							+ "<small>" + specialVersion;
+						if (response.query.statistics.jobs > 0)
+							content += "<br />Job Queue: " + response.query.statistics.jobs;
+						content += "</small><br />";
+						content = $("<td class='wiki-info'>").html(content);
 			
 						$("#versions").append(
 							$("<tr>")
