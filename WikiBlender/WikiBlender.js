@@ -1,9 +1,15 @@
+var totalArticles = 0,
+	totalImages = 0;
+	totalViews = 0,
+	totalEdits = 0,
+	totalActiveUsers = [];
+
 var WikiBlender = {
 
 	getWikiStats : function( wikiIndex, articlesElement ) {
-		
+
 		var wikiPath = $(articlesElement).attr("wikipath");
-	
+
 		$.getJSON(
 			WikiBlenderServer + wikiPath  + "/api.php",
 			{
@@ -11,12 +17,12 @@ var WikiBlender = {
 				action : "query",
 				meta : "siteinfo",
 				siprop : "statistics",
-				
+
 				// active users
 				list : "allusers",
 				auactiveusers : "",
 				aulimit : 500,
-				
+
 				format : "json"
 			},
 			function (response) {
@@ -27,10 +33,10 @@ var WikiBlender = {
 						return -1;
 					return 0;
 				};
-			
+
 				var stats = response.query.statistics;
 				var allusers = response.query.allusers;
-				
+
 				allusers.sort( compareUserActions );
 				var userCounts = [];
 				for(var u in allusers) {
@@ -40,19 +46,40 @@ var WikiBlender = {
 				}
 				userCounts = userCounts.join("");
 				userCounts = "<h4>Most active users - last 30 days</h4><ol>" + userCounts + "</ol>";
-				
+
 				$(articlesElement)
 					.attr("title", userCounts)
 					.html(
-						stats.articles + " articles, " + 
+						stats.articles + " articles, " +
 						stats.images + " uploaded files<br />" +
 						stats.views + " views, " +
-						stats.edits + " edits<br />" + 
+						stats.edits + " edits<br />" +
 						allusers.length + " active contributors"
 					)
 					.tooltip({
 						content : function() { return userCounts; }
 					});
+
+				totalArticles += stats.articles;
+				totalImages += stats.images;
+				totalViews += stats.views;
+				totalEdits += stats.edits;
+
+				for(var u in allusers) {
+					totalActiveUsers.push( allusers[u].name );
+				}
+				totalActiveUsers = _.uniq( totalActiveUsers );
+
+				$("#subtitle").html(
+					"Across all wikis: " +
+					totalArticles + " articles, " +
+					totalImages + " uploaded files, " +
+					totalViews + " views, " +
+					totalEdits + " edits, " +
+					totalActiveUsers.length + " unique editors in last 30 days"
+				);
+
+
 					// .append(
 						// $("<span title='" + userCounts + "'>" + allusers.length + " active contributors<span>").tooltip({
 							// content : function() { return userCounts; }
@@ -62,13 +89,13 @@ var WikiBlender = {
 		);
 
 	},
-	
+
 	tooltipAllTitles : function () {
 		$(document).tooltip({
 			content: function() {
 				return $(this).attr('title');
 			}
-		});	
+		});
 	}
-	
+
 };
