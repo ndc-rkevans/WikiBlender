@@ -5,12 +5,12 @@
     <title><?php echo WikiBlender::get_title(); ?></title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-	<script src="WikiBlender/masonry.pkgd.min.js"></script>
-	<script src="WikiBlender/WikiBlender.js"></script>
-	<script src="WikiBlender/underscore-min.js"></script>
+    <?php echo WikiBlender::getResource( 'masonry.pkgd.min.js' ); ?>
+    <?php echo WikiBlender::getResource( 'WikiBlender.js' ); ?>
+    <?php echo WikiBlender::getResource( 'underscore-min.js' ); ?>
 	<link rel="shortcut icon" href="/wiki/wikis/meta/config/favicon.ico">
     <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/cupertino/jquery-ui.min.css" rel="stylesheet" type="text/css" />
-    <link href="WikiBlender/WikiBlender.css?nocache=1" rel="stylesheet" type="text/css" />
+    <?php echo WikiBlender::getResource( 'WikiBlender.css' ); ?>
 	<script>
 		$(document).ready(function(){
 			WikiBlender.tooltipAllTitles();
@@ -40,32 +40,32 @@
     </script>
   </head>
   <body>
+  	<?php
+
+		if ( isset( $_GET['invalidwiki'] ) ) {
+			$invalidWiki = $_GET['invalidwiki'];
+			echo "<div style='font-size: 24px; text-align: center; line-height: 600%; color: #a94442; background-color: #f2dede; border-radius: 4px; margin: 40px;'>
+					Sorry, but \"$invalidWiki\" is not a valid wiki. Please try one of the wikis below.
+				</div>";
+		}
+  	?>
 	<h1 id="first-heading"><?php echo WikiBlender::get_title(); ?></h1>
 	<p id="subtitle">Loading data...</p>
-	<!-- <h4><a href="?v=RecentChanges">Combined Recent Changes</a> <sup>(beta)</sup></h4> -->
-	<!-- <h4>This page is being updated to house more wikis. It may occasionally display some errors.</h4> -->
     <div id="container">
 
-    	<h2>Open access wikis</h2>
-		<div id='top-wikis'>
-		<?php
-			echo WikiBlender::getLandingPageWikiBlock( WikiBlender::getWikiSiteInfo( 'fod' ) );
-		?>
+    	<?php echo WikiBlender::getSectionTitle( 'header' ); ?>
+		<div style="clear:both;" id='top-wikis'>
+			<?php echo WikiBlender::getWikiBlocks( 'header' ); ?>
 		</div>
 
-		<h2 style="clear:both;">Closed access wikis</h2>
-		<div id="masonry-container">
-		<?php
-			foreach (WikiBlender::get_wikis() as $wiki) {
-				echo WikiBlender::getLandingPageWikiBlock( $wiki );
-			}
-		?>
+    	<?php echo WikiBlender::getSectionTitle( 'middle' ); ?>
+		<div style="clear:both;" id="masonry-container">
+			<?php echo WikiBlender::getWikiBlocks( 'middle' ); ?>
 		</div>
 
+    	<?php echo WikiBlender::getSectionTitle( 'footer' ); ?>
 		<div style="clear:both;" id='bottom-wikis'>
-		<?php
-			echo WikiBlender::getLandingPageWikiBlock( WikiBlender::getWikiSiteInfo( 'meta' ) );
-		?>
+			<?php echo WikiBlender::getWikiBlocks( 'footer' ); ?>
 		</div>
 
 		<?php echo WikiBlender::getFooter(); ?>
