@@ -1,3 +1,3 @@
 <?php
-require_once "WikiBlender/WikiBlender.php";
+require_once "includes/WikiBlender.php";
 WikiBlender::execute();
