@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
   <head>
     <?php echo WikiBlender::htmlHeader(); ?>
     <title><?php echo WikiBlender::get_title(); ?></title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <?php echo WikiBlender::getResource( 'jquery.min.js' ); ?>
+    <?php echo WikiBlender::getResource( 'jquery-ui.min.js' ); ?>
     <?php echo WikiBlender::getResource( 'masonry.pkgd.min.js' ); ?>
     <?php echo WikiBlender::getResource( 'WikiBlender.js' ); ?>
     <?php echo WikiBlender::getResource( 'underscore-min.js' ); ?>
 	<link rel="shortcut icon" href="/wiki/wikis/meta/config/favicon.ico">
-    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/cupertino/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <?php echo WikiBlender::getResource( 'jquery-ui.min.css' ); ?>
     <?php echo WikiBlender::getResource( 'WikiBlender.css' ); ?>
 	<script>
 		$(document).ready(function(){
