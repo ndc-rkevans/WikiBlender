@@ -104,7 +104,13 @@ class WikiBlender {
 
 
 	public static function getWikiSiteName ( $wikiId ) {
-		include self::$blenderWikisDir . "/$wikiId/config/preLocalSettings.php";
+		include self::$blenderWikisDir . "/$wikiId/config/preLocalSettings.d/base.php";
+
+		// Maintain legacy meza version of getting sitename
+		if ( ! isset( $wgSitename ) ) {
+			include self::$blenderWikisDir . "/$wikiId/config/preLocalSettings.php";
+		}
+
 		if ( isset( $wgSitename ) ) {
 			return $wgSitename;
 		} else {
