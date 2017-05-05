@@ -8,7 +8,7 @@
     <?php echo WikiBlender::getResource( 'masonry.pkgd.min.js' ); ?>
     <?php echo WikiBlender::getResource( 'WikiBlender.js' ); ?>
     <?php echo WikiBlender::getResource( 'underscore-min.js' ); ?>
-	<link rel="shortcut icon" href="/wiki/wikis/meta/config/favicon.ico">
+	<link rel="shortcut icon" href="<?php echo WikiBlender::$blenderFavicon; ?>">
     <?php echo WikiBlender::getResource( 'jquery-ui.min.css' ); ?>
     <?php echo WikiBlender::getResource( 'WikiBlender.css' ); ?>
 	<script>
