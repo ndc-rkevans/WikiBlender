@@ -49,7 +49,7 @@
 				</div>";
 		}
   	?>
-	<div style="background-color: #3b5998; padding:24px; margin-bottom: 24px; margin: 0px; color: #ffffff; font-size: 2.2em; text-align: center;">
+	<div style="background-color: #3b5998; padding:24px; margin-bottom: 24px; margin: 0px; color: #ffffff; font-size: 2.2em; text-align: center; font-weight: bold;">
 		<?php echo WikiBlender::get_title(); ?>
 	</div>
 	<p id="subtitle" style='font-size: 2.1em;'>
