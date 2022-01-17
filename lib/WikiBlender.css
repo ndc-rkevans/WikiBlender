@@ -37,12 +37,10 @@ p { margin: 0; }
 	background-color: #3b5998!important;
 	text-align: center;
 }
-#footer {
-	a:link    { color: #ffffff; }
-	a:visited { color: #ffffff; }
-	a:hover   { color: #ffffff; }
-	a:active  { color: #ffffff; }
-}
+#footer a:link    { color: #ffffff!important; }
+#footer a:visited { color: #ffffff!important; }
+#footer a:hover   { color: #ffffff!important; }
+#footer a:active  { color: #ffffff!important; }
 
 .ui-tooltip {
 	font-size: 12px;
