@@ -50,7 +50,7 @@
 		}
   	?>
 	<h1 id="first-heading"><?php echo WikiBlender::get_title(); ?></h1>
-	<p id="subtitle">Loading data...</p>
+	<p id="subtitle" style='font-size: 2.1em;'><a href='https://revansx.net/social/'><span style='font-weight: bold;'>A Social Site</span></a> | <a href='https://revansx.net/photos/'><span style='font-weight: bold;'>Online Photo Albums</span></a></p>
     <div id="container">
 
     	<?php echo WikiBlender::getSectionTitle( 'header' ); ?>
