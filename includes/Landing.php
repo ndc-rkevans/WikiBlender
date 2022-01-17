@@ -60,7 +60,7 @@
 	  	<a href='https://revansx.net/learn/'><span style='font-weight:bold;border:1px solid #e0e0e0;border-radius:18px;background-color:#f0f0f0;padding:6px 22px 6px 22px;'>Learing</span></a>
 		&nbsp;
 		<span style='font-weight:bold;border:1px solid #e0e0e0;border-radius:18px;background-color:#f0f0f0;padding:6px 22px 6px 22px;'>Wikis (see below)</span>
-    <div id="container">
+    	<div id="container">
 
     	<?php echo WikiBlender::getSectionTitle( 'header' ); ?>
 		<div style="clear:both;" id='top-wikis'>
@@ -76,7 +76,8 @@
 		<div style="clear:both;" id='bottom-wikis'>
 			<?php echo WikiBlender::getWikiBlocks( 'footer' ); ?>
 		</div>
-
+	</div>
+	<div style="background-color: #3b5998; padding:18px; color: #ffffff; text-align: center;">
 		<?php echo WikiBlender::getFooter(); ?>
 	</div>
   </body>
