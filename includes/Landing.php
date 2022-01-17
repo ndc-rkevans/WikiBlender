@@ -77,7 +77,7 @@
 			<?php echo WikiBlender::getWikiBlocks( 'footer' ); ?>
 		</div>
 	</div>
-	<div style="background-color: #3b5998; padding:18px; color: #ffffff; text-align: center;">
+	<div style="background-color: #3b5998; color: #ffffff; text-align: center;">
 		<?php echo WikiBlender::getFooter(); ?>
 	</div>
   </body>
