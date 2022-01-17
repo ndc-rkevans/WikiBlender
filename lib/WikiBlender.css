@@ -36,6 +36,7 @@ p { margin: 0; }
 	clear:left;
 	background-color: #3b5998!important;
 	text-align: center;
+	padding: 12px;
 }
 #footer a:link    { color: #ffffff!important; }
 #footer a:visited { color: #ffffff!important; }
