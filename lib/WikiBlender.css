@@ -34,13 +34,13 @@ p { margin: 0; }
 	font-size:12px;
 	font-weight:normal;
 	clear:left;
-	background-color: #3b5998;
+	background-color: #3b5998!important;
+	text-align: center;
 	a:link    { color: #ffffff; }
 	a:visited { color: #ffffff; }
 	a:hover   { color: #ffffff; }
 	a:active  { color: #ffffff; }
 }
-
 
 .ui-tooltip {
 	font-size: 12px;
