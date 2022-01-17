@@ -249,7 +249,7 @@ class WikiBlender {
 						<h3>$name</h3>
 					</a>
 				</td></tr>
-				<tr><td class='num-articles' wikipath='$path'>Loading wiki data...</td></tr>
+				<tr style='display: none; visibility: hidden;'><td class='num-articles' wikipath='$path'>Loading wiki data...</td></tr>
 			</table>";
 	}
 
