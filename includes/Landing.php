@@ -49,7 +49,9 @@
 				</div>";
 		}
   	?>
-	<h1 id="first-heading"><?php echo WikiBlender::get_title(); ?></h1></hr>
+	<div style="background-color:#3b5998; padding:24px; margin-bottom:24px;">
+		<h1 id="first-heading"><?php echo WikiBlender::get_title(); ?></h1>
+	</div>
 	<p id="subtitle" style='font-size: 2.1em;'>
 		<a href='https://revansx.net/social/'><span style='font-weight:bold;border:1px solid #e0e0e0;border-radius:18px;background-color:#f0f0f0;padding:6px 22px 6px 22px;'>Social</span></a>
 		&nbsp;
