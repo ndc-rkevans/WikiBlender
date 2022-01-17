@@ -50,7 +50,11 @@
 		}
   	?>
 	<h1 id="first-heading"><?php echo WikiBlender::get_title(); ?></h1>
-	<p id="subtitle" style='font-size: 2.1em;'><a href='https://revansx.net/social/'><span style='font-weight: bold;'>A Social Site</span></a> | <a href='https://revansx.net/photos/'><span style='font-weight: bold;'>Online Photo Albums</span></a></p>
+	<p id="subtitle" style='font-size: 2.1em;'>
+		<a href='https://revansx.net/social/'><span style='font-weight: bold;'>/Social/</span></a> | 
+		<a href='https://revansx.net/photos/'><span style='font-weight: bold;'>/Photos/</span></a> |
+	  	<a href='https://revansx.net/learn/'><span style='font-weight: bold;'>/Learing/</span></a>
+	</p>
     <div id="container">
 
     	<?php echo WikiBlender::getSectionTitle( 'header' ); ?>
