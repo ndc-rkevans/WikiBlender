@@ -53,7 +53,7 @@
 		<?php echo WikiBlender::get_title(); ?>
 	</div>
 	<p id="subtitle" style='font-size: 2.1em;'>
-		<span style='font-weight:bold;border:1px solid #c0c0c0;border-radius:18px;background-color:#f0f0f0;padding:6px 22px 6px 22px;'>Wikis (see below)</span>
+		<span style='font-weight:bold;border:1px solid #c0c0c0;border-radius:18px;background-color:#f0f0f0;padding:6px 22px 6px 22px;'>All Wikis (see below)</span>
 		&nbsp;
 		<a href='./nonwiki/'><span style='font-weight:bold;border:1px solid #c0c0c0;border-radius:18px;background-color:#f0f0f0;padding:6px 22px 6px 22px;'>All Non-Wiki Content</span></a>
     	<div id="container">
