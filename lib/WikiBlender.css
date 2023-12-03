@@ -55,6 +55,7 @@ table td {
 	text-align: center;
 }
 .wiki-block {
+	vertical-align: top;
 	text-align:center;
 	margin:0px;
 	padding-top: 10px;
