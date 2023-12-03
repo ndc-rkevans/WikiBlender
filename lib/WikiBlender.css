@@ -55,7 +55,6 @@ table td {
 	text-align: center;
 }
 .wiki-block {
-	vertical-align: top;
 	text-align:center;
 	margin:0px;
 	padding-top: 10px;
@@ -68,7 +67,7 @@ table td {
 .wiki-block td {
 	margin:0;
 	padding:0;
-	vertical-align:bottom;
+	vertical-align: top;
 }
 .wiki-block td h3 {
 	margin-top:5px;
